@@ -1,6 +1,6 @@
 network:
   private_address: 192.0.2.20
-  matrix_address: 192.0.2.10
+  matrix_source_address: 192.0.2.10
   ssh_port: 22
 
 deployment:
