@@ -25,6 +25,12 @@ Salt reads these files from `hosts/<target>/secrets/`:
 - `plan.secrets.env`
 - `janitor.secrets.env`
 
+Cashier product variables and Plan checkout-link variables use plan-name suffixes
+(`TEAM`, `BUSINESS`, `BUSINESS_PLUS`, `MAX`). Their exact required names are documented in
+the [Cashier](https://github.com/TeleCrypt-io/cashier#readme) and
+[Controlplane](https://github.com/TeleCrypt-io/control-plane#readme) repositories.
+Rename the corresponding private inputs when selecting these images; numeric suffixes are no longer read.
+
 Cashier, Plan, and Registration bind inside the `apps` pod. The pod publishes ports 9009, 9011, and 9012 only on host loopback for HAProxy. Cashier, Plan, Registration, and the one-shot Janitor service are native Quadlet resources (`apps-pod`, `cashier`, `plan`, `registration`, and `janitor`). A daily systemd timer targets `janitor.service`. Applying Salt starts the timer after Cashier and Plan; it does not start the Janitor service.
 
 All three app-to-Matrix service URLs use the Matrix private HAProxy listener on port 8080. Compile the app states through the combined Harness Salt roots with `salt-call --local state.show_sls apps.svc`. Render checks do not replace Stage workflow acceptance.
