@@ -2,5 +2,5 @@
 # matrix-salt/pillar/runtime.sls.
 versions:
   images:
-    cashier: ghcr.io/telecrypt-io/telecrypt-cashier:0.4.43
-    controlplane: ghcr.io/telecrypt-io/controlplane:0.5.58
+    cashier: ghcr.io/telecrypt-io/telecrypt-cashier:0.4.44
+    controlplane: ghcr.io/telecrypt-io/controlplane:0.5.62
